@@ -62,11 +62,6 @@ extension MapViewController: UIGestureRecognizerDelegate{
     @objc func onDoubleTap(gestureRecognizer: UITapGestureRecognizer){
         let location = gestureRecognizer.location(in: aMap)
         let coordinate = aMap.convert(location, toCoordinateFrom: aMap)
-
-        // Add annotation:
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = coordinate
-        aMap.addAnnotation(annotation)
         
         openDetail(location: coordinate)
     }
