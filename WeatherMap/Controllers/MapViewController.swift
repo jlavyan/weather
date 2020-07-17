@@ -20,6 +20,7 @@ class MapViewController: UIViewController {
 }
 
 
+/// For handlers
 private extension MapViewController{
     /// Add double tap handler on map view
     private func addHandlers(){
@@ -41,6 +42,22 @@ private extension MapViewController{
 }
 
 
+/// For navigations
+private extension MapViewController{
+    private func openDetail(location: CLLocationCoordinate2D){
+        let storyBoard = UIStoryboard(name: "Main", bundle: nil)
+        let detailController = storyBoard.instantiateViewController(withIdentifier: "DetailViewController") as? DetailViewController
+        detailController?.location = location
+        
+        if let detailController = detailController{
+            self.navigationController?.pushViewController(detailController, animated: true)
+        }else{
+            assertionFailure("DetailViewController not exist in storyboard")
+        }
+    }
+    
+}
+
 extension MapViewController: UIGestureRecognizerDelegate{
     @objc func onDoubleTap(gestureRecognizer: UITapGestureRecognizer){
         let location = gestureRecognizer.location(in: aMap)
@@ -50,6 +67,8 @@ extension MapViewController: UIGestureRecognizerDelegate{
         let annotation = MKPointAnnotation()
         annotation.coordinate = coordinate
         aMap.addAnnotation(annotation)
+        
+        openDetail(location: coordinate)
     }
     
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
