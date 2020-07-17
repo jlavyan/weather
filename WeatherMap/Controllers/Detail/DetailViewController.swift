@@ -36,12 +36,16 @@ private extension DetailViewController{
         }
         
         detailModel.loadWeather(location: coordinate, onFinish: { (weather) in
+            self.indicatorView.stopAnimating()
+            
             if let weather = weather?.weather.first{
                 self.detailView.configure(weather)
             }else{
                 self.errorOnLoad()
             }
         }, onError: {
+            self.indicatorView.stopAnimating()
+
             self.errorOnLoad()
         })
     }
