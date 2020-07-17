@@ -21,6 +21,7 @@ class DetailViewController: UIViewController{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        initialize()
         loadWeather()
     }
 }
@@ -57,5 +58,9 @@ private extension DetailViewController{
         })
         
         self.present(alertController, animated: true, completion: nil)
+    }
+    
+    func initialize(){
+        self.title = "Weather detail"
     }
 }
