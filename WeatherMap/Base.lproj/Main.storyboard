@@ -66,29 +66,32 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHu-dB-GPh" customClass="DetailView" customModule="WeatherMap" customModuleProvider="target">
-                                <rect key="frame" x="20" y="113" width="142" height="134"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="fHu-dB-GPh" customClass="DetailView" customModule="WeatherMap" customModuleProvider="target">
+                                <rect key="frame" x="20" y="113" width="350" height="164"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="563-uB-yFf" userLabel="id">
-                                        <rect key="frame" x="0.0" y="0.0" width="142" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="350" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="main:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8du-Lq-f0C" userLabel="main">
-                                        <rect key="frame" x="0.0" y="33.5" width="142" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="43.5" width="350" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-Ys-YXr" userLabel="description">
-                                        <rect key="frame" x="0.0" y="67" width="142" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="87" width="350" height="33.5"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="350" id="Nqd-5a-Rja"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="icon:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUi-Gx-vlk" userLabel="icon">
-                                        <rect key="frame" x="0.0" y="100.5" width="142" height="33.5"/>
+                                        <rect key="frame" x="0.0" y="130.5" width="350" height="33.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="28"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
