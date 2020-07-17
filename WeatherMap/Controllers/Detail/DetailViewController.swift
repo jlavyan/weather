@@ -14,6 +14,8 @@ class DetailViewController: UIViewController{
     
     @IBOutlet private var indicatorView: UIActivityIndicatorView!
 
+    @IBOutlet private var detailView: DetailView!
+
     var detailModel = LocationDetailModel()
     
     override func viewDidLoad() {
@@ -33,9 +35,13 @@ private extension DetailViewController{
         }
         
         detailModel.loadWeather(location: coordinate, onFinish: { (weather) in
-            print("success")
+            if let weather = weather?.weather.first{
+                self.detailView.configure(weather)
+            }else{
+                self.errorOnLoad()
+            }
         }, onError: {
-            
+            self.errorOnLoad()
         })
     }
 }
@@ -44,6 +50,9 @@ private extension DetailViewController{
 /// Allerts
 private extension DetailViewController{
     func errorOnLoad(){
+        let alertController = UIAlertController(title: "Error", message: "We had problem when load weather", preferredStyle: .alert)
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         
+        self.present(alertController, animated: true, completion: nil)
     }
 }

@@ -11,12 +11,22 @@ import MapKit
 
 class LocationDetailModel{
     private let weatherRepository = WeatherRepository()
-    
+    private let database = Database()
+
     func loadWeather(location: CLLocationCoordinate2D, onFinish: @escaping (WeatherFull?) -> (), onError: @escaping () -> ()){
         weatherRepository.loadWeather(latitude: location.latitude, longitude: location.longitude, onFinish: { (weather) in
             onFinish(weather)
+            
+            if let data = try? JSONEncoder().encode(weather){
+                self.database.addWeather(latitude: location.latitude, longitude: location.longitude, data: data)
+            }
         }) {
-            onError()
+            // Try to load from local storage
+            if let weatherFull = self.database.nearWeather(latitude: location.latitude, longitude: location.longitude){
+                onFinish(weatherFull)
+            }else{
+                onError()
+            }
         }
     }
 }

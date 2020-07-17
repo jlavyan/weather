@@ -20,7 +20,7 @@ class WeatherRepository: Repository{
         let urlString = "\(baseUrl)\(weatherPath(latitude, longitude))"
         
         if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url), let weather = parse(json: data) {
+            if let data = try? Data(contentsOf: url), let weather = WeatherFull.parse(json: data) {
                 onFinish(weather)
             }else{
                 onError()
@@ -30,15 +30,6 @@ class WeatherRepository: Repository{
         }
     }
     
-    private func parse(json: Data) -> WeatherFull? {
-        let decoder = JSONDecoder()
-
-        if let model = try? decoder.decode(WeatherFull.self, from: json) {
-            return model
-        }else{
-            return nil
-        }
-    }
 
 }
 

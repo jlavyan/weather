@@ -66,15 +66,54 @@
                                 <rect key="frame" x="188.5" y="429.5" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="fHu-dB-GPh" customClass="DetailView" customModule="WeatherMap" customModuleProvider="target">
+                                <rect key="frame" x="20" y="113" width="142" height="134"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="563-uB-yFf" userLabel="id">
+                                        <rect key="frame" x="0.0" y="0.0" width="142" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="main:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8du-Lq-f0C" userLabel="main">
+                                        <rect key="frame" x="0.0" y="33.5" width="142" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="description:" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cFd-Ys-YXr" userLabel="description">
+                                        <rect key="frame" x="0.0" y="67" width="142" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="icon:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tUi-Gx-vlk" userLabel="icon">
+                                        <rect key="frame" x="0.0" y="100.5" width="142" height="33.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="28"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <connections>
+                                    <outlet property="descLabel" destination="cFd-Ys-YXr" id="6FV-7L-kr4"/>
+                                    <outlet property="iconLabel" destination="tUi-Gx-vlk" id="mST-Tj-IGe"/>
+                                    <outlet property="idLabel" destination="563-uB-yFf" id="30i-SJ-k1K"/>
+                                    <outlet property="mainLabel" destination="8du-Lq-f0C" id="C9S-wO-iLi"/>
+                                </connections>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
+                            <constraint firstItem="fHu-dB-GPh" firstAttribute="leading" secondItem="KzK-Ie-tId" secondAttribute="leading" constant="20" id="2nX-1A-rkM"/>
                             <constraint firstItem="p9k-SL-c6n" firstAttribute="centerY" secondItem="gVF-hs-pwA" secondAttribute="centerY" id="U3P-lf-cZG"/>
+                            <constraint firstItem="fHu-dB-GPh" firstAttribute="top" secondItem="KzK-Ie-tId" secondAttribute="top" constant="25" id="VY8-UE-JPc"/>
                             <constraint firstItem="p9k-SL-c6n" firstAttribute="centerX" secondItem="gVF-hs-pwA" secondAttribute="centerX" id="dmV-hy-pRV"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="KzK-Ie-tId"/>
                     </view>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
+                        <outlet property="detailView" destination="fHu-dB-GPh" id="wwW-Ov-IaN"/>
                         <outlet property="indicatorView" destination="p9k-SL-c6n" id="3fL-y6-O7F"/>
                     </connections>
                 </viewController>
