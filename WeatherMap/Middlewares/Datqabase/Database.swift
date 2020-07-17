@@ -49,7 +49,7 @@ class Database{
     
     /// This isn't very correct
     private func nearPredicate(_ latitude: Double, _ longitude: Double) -> NSPredicate{
-        return NSPredicate(format: "itemLatitude BETWEEN {%f,%f} AND itemLongitude BETWEEN {%f,%f}", (latitude-0.10), (latitude+0.10), (longitude-0.10), (longitude+0.10))
+        return NSPredicate(format: "latitude BETWEEN {%f,%f} AND longitude BETWEEN {%f,%f}", (latitude-0.10), (latitude+0.10), (longitude-0.10), (longitude+0.10))
     }
     
     private func getContext() -> NSManagedObjectContext{
