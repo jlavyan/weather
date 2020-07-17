@@ -67,7 +67,7 @@ extension MapViewController: UIGestureRecognizerDelegate{
     }
     
     
-    /// One tap and Double tap should work together
+    /// One tap and double tap should work together
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
