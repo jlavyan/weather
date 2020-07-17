@@ -22,6 +22,9 @@
 		8805852724C2026E00DA5A92 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805852624C2026E00DA5A92 /* Weather.swift */; };
 		8805852924C207B700DA5A92 /* LocationDetailModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805852824C207B700DA5A92 /* LocationDetailModel.swift */; };
 		8805852C24C20C5800DA5A92 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8805852B24C20C5800DA5A92 /* DetailView.swift */; };
+		88AC32F124C2215A0075E864 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 88AC32F024C2215A0075E864 /* MapKit.framework */; };
+		88AC32F224C222D00075E864 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880584EF24C1F89400DA5A92 /* Main.storyboard */; };
+		88AC32F324C222FB0075E864 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 880584F424C1F89700DA5A92 /* LaunchScreen.storyboard */; };
 		88F81E2E24C210A10099EABB /* Database.swift in Sources */ = {isa = PBXBuildFile; fileRef = 88F81E2D24C210A10099EABB /* Database.swift */; };
 		88F81E5424C211CE0099EABB /* WeatherCoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 88F81E5224C211CE0099EABB /* WeatherCoreData.xcdatamodeld */; };
 /* End PBXBuildFile section */
@@ -65,6 +68,7 @@
 		8805852624C2026E00DA5A92 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		8805852824C207B700DA5A92 /* LocationDetailModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailModel.swift; sourceTree = "<group>"; };
 		8805852B24C20C5800DA5A92 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
+		88AC32F024C2215A0075E864 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.15.sdk/System/Library/Frameworks/MapKit.framework; sourceTree = DEVELOPER_DIR; };
 		88F81E2D24C210A10099EABB /* Database.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Database.swift; sourceTree = "<group>"; };
 		88F81E5324C211CE0099EABB /* WeatherCoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = WeatherCoreData.xcdatamodel; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -81,6 +85,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AC32F124C2215A0075E864 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -101,6 +106,7 @@
 				880584FF24C1F89700DA5A92 /* WeatherMapTests */,
 				8805850A24C1F89800DA5A92 /* WeatherMapUITests */,
 				880584E724C1F89400DA5A92 /* Products */,
+				88AC32EF24C2215A0075E864 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -201,6 +207,14 @@
 				8805852B24C20C5800DA5A92 /* DetailView.swift */,
 			);
 			path = Detail;
+			sourceTree = "<group>";
+		};
+		88AC32EF24C2215A0075E864 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				88AC32F024C2215A0075E864 /* MapKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 		88F81E2C24C210850099EABB /* Datqabase */ = {
@@ -332,6 +346,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				88AC32F224C222D00075E864 /* Main.storyboard in Resources */,
+				88AC32F324C222FB0075E864 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -527,6 +543,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KBTU2235W2;
 				INFOPLIST_FILE = WeatherMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -545,6 +562,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = KBTU2235W2;
 				INFOPLIST_FILE = WeatherMap/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -565,7 +583,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherMapTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -586,7 +604,7 @@
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = WeatherMapTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

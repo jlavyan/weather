@@ -11,6 +11,7 @@ import XCTest
 
 class WeatherMapTests: XCTestCase {
 
+    /// Load weather location make assert when we don't able to get
     func testLocationLoad() throws {
         let weatherRepository = WeatherRepository()
 
