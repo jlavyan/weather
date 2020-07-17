@@ -11,6 +11,8 @@ import Foundation
 class WeatherRepository: Repository{
     var baseUrl: String
     
+    let queue = DispatchQueue.global(qos: .utility)
+
     init(baseUrl: String = "http://api.openweathermap.org/data/2.5/weather") {
         self.baseUrl = baseUrl
     }
@@ -18,19 +20,31 @@ class WeatherRepository: Repository{
     
     func loadWeather(latitude: Double, longitude: Double, onFinish: @escaping (WeatherFull?) -> (), onError: @escaping () -> ()){
         let urlString = "\(baseUrl)\(weatherPath(latitude, longitude))"
-        
-        if let url = URL(string: urlString) {
-            if let data = try? Data(contentsOf: url), let weather = WeatherFull.parse(json: data) {
-                onFinish(weather)
+
+        queue.async{
+            if let url = URL(string: urlString) {
+                if let data = try? Data(contentsOf: url), let weather = WeatherFull.parse(json: data) {
+                    self.callOnMain {
+                        onFinish(weather)
+                    }
+                }else{
+                    self.callOnMain {
+                        onError()
+                    }
+                }
             }else{
-                onError()
+                self.callOnMain {
+                    onError()
+                }
             }
-        }else{
-            onError()
         }
     }
     
-
+    func callOnMain(callBack: @escaping () -> ()){
+        DispatchQueue.main.async {
+            callBack()
+        }
+    }
 }
 
 private extension WeatherRepository{
