@@ -25,7 +25,7 @@ class DetailViewController: UIViewController{
     }
 }
 
-/// Interact with model
+/// Interaction with model
 private extension DetailViewController{
     func loadWeather(){
         guard let coordinate = location else{
@@ -47,11 +47,14 @@ private extension DetailViewController{
 }
 
 
-/// Allerts
 private extension DetailViewController{
     func errorOnLoad(){
+        detailView.isHidden = true
+        
         let alertController = UIAlertController(title: "Error", message: "We had problem when load weather", preferredStyle: .alert)
-        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        alertController.addAction(UIAlertAction(title: "Cancel", style: .cancel){ action in
+            self.navigationController?.popViewController(animated: true)
+        })
         
         self.present(alertController, animated: true, completion: nil)
     }

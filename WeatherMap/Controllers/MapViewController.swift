@@ -20,7 +20,6 @@ class MapViewController: UIViewController {
 }
 
 
-/// For handlers
 private extension MapViewController{
     /// Add double tap handler on map view
     private func addHandlers(){
@@ -42,7 +41,7 @@ private extension MapViewController{
 }
 
 
-/// For navigations
+/// Interaction with other controllers
 private extension MapViewController{
     private func openDetail(location: CLLocationCoordinate2D){
         let storyBoard = UIStoryboard(name: "Main", bundle: nil)
@@ -58,6 +57,7 @@ private extension MapViewController{
     
 }
 
+/// Gesture protocol implementation
 extension MapViewController: UIGestureRecognizerDelegate{
     @objc func onDoubleTap(gestureRecognizer: UITapGestureRecognizer){
         let location = gestureRecognizer.location(in: aMap)
@@ -66,6 +66,8 @@ extension MapViewController: UIGestureRecognizerDelegate{
         openDetail(location: coordinate)
     }
     
+    
+    /// One tap and Double tap should work together
     func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
         return true
     }
